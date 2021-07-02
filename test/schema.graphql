@@ -1,0 +1,11 @@
+# Sample schema
+type Query {
+  user(id: Int!): User!
+}
+
+type User {
+  id: Int!
+  username: String!
+  email: String!
+  createdAt: String!
+}
