@@ -45,7 +45,7 @@ jobs:
         env:
           VERSION: ${{ needs.version.outputs.VERSION }}
         run: |
-          npm version $VERSION -m "[release: ${VERSION}]"
+          npm version $VERSION -m "[release: v${VERSION}]"
 
       - name: Publish
         run: make prepublish

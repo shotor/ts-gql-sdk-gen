@@ -1,6 +1,6 @@
 {
   "name": "@shotor/ts-gql-sdk",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Generate a complete GraphQL SDK from schema, generating all queries/mutations/subscriptions along the way.",
   "homepage": "https://github.com/shotor/ts-gql-sdk-gen#readme",
   "author": "shotor",
