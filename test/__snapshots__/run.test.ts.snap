@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`run test gets desired output 1`] = `
+"$ ts-node ./src/index.ts ./test/schema.graphql ./test/out  ./test/schema.graphql ./test/output -d
+import { GraphQLClient } from 'graphql-request';
+import * as Dom from 'graphql-request/dist/types.dom';
+import { GraphQLError } from 'graphql-request/dist/types';
+import { print } from 'graphql'
+import gql from 'graphql-tag';
+export type Maybe<T> = T | null;
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+/** All built-in and custom scalars, mapped to their actual values */
+export type Scalars = {
+  ID: string;
+  String: string;
+  Boolean: boolean;
+  Int: number;
+  Float: number;
+};
+
+
+
+export type UserQueryVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type UserQuery = { __typename?: 'Query', user: { __typename?: 'User', id: number, username: string, email: string, createdAt: string } };
+
+
+export const UserDocument = gql\`
+    query user($id: Int!) {
+  user(id: $id) {
+    id
+    username
+    email
+    createdAt
+  }
+}
+    \`;
+
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string) => Promise<T>;
+
+
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName) => action();
+const UserDocumentString = print(UserDocument);
+export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
+  return {
+    user(variables: UserQueryVariables, requestHeaders?: Dom.RequestInit[\\"headers\\"]): Promise<{ data?: UserQuery | undefined; extensions?: any; headers: Dom.Headers; status: number; errors?: GraphQLError[] | undefined; }> {
+        return withWrapper((wrappedRequestHeaders) => client.rawRequest<UserQuery>(UserDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'user');
+    }
+  };
+}
+export type Sdk = ReturnType<typeof getSdk>;
+"
+`;
