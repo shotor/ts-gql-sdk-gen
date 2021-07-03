@@ -13,3 +13,23 @@ jobs:
 
       - name: Build
         run: make build
+
+  version:
+    name: Determine Version
+    runs-on: ubuntu-latest
+    outputs:
+      VERSION: ${{ steps.gitversion.outputs.semVer }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.7
+        with:
+          versionSpec: '5.x'
+
+      - name: Determine Version
+        id:   gitversion
+        uses: gittools/actions/gitversion/execute@v0.9.7
