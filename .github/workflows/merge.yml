@@ -39,7 +39,7 @@ jobs:
       - name: Set Git Config
         run: |
           git config user.email "ci@shotor.com"
-          git config user.name "Shotor CI"
+          git config user.name "shotor-ci"
 
       - name: Set Version
         env:
