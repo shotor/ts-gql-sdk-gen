@@ -1,0 +1,15 @@
+name: Build Pull Request
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    name: Build Project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build
+        run: make build
