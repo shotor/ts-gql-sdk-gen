@@ -35,6 +35,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Set Git Config
+        run: |
+          git config user.email "ci@shotor.com"
+          git config user.name "Shotor CI"
+
       - name: Set Version
         env:
           VERSION: ${{ needs.version.outputs.VERSION }}
