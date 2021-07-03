@@ -44,7 +44,8 @@ jobs:
       - name: Set Version
         env:
           VERSION: ${{ needs.version.outputs.VERSION }}
-        run: npm version $VERSION
+        run: |
+          npm version $VERSION -m "[release: ${VERSION}]"
 
       - name: Publish
         run: make prepublish
@@ -54,7 +55,9 @@ jobs:
           token: ${{ secrets.NPM_TOKEN }}
 
       - name: Push
-        run: git push
+        run: |
+          git push
+          git push --tags
 
 
       
