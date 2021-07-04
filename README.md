@@ -57,7 +57,7 @@ desribe('test user', () => {
   it('gets user', async () => {
     const ID = 300
     const result = await sdk.user({
-      id: 300,
+      id: ID,
     })
 
     expect(result.id).toBe(ID)
