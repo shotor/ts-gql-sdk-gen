@@ -2,12 +2,20 @@
 
 Generate a complete GraphQL SDK from schema, generating all queries/mutations/subscriptions along the way.
 
+Basically hacks the following two great packages together:
+
+- [GraphQL Code Generator](https://www.graphql-code-generator.com/)
+- [GQL Generator](https://github.com/timqian/gql-generator)
+
 ## Usage
 
 ### Install
 
 ```sh
 yarn global add @shotor/tsgqlsdk
+
+# or install locally
+yarn add -D @shotor/tsgqlsdk
 ```
 
 ### Run
@@ -45,7 +53,11 @@ In the destination folder you will find the following folder structure
 
 Make sure `graphql-request` is installed in your project.
 
-Then import and use the `gql-sdk.ts` and use fully typed api:
+```sh
+yarn add graphql-request
+```
+
+Then import and use the `gql-sdk.ts` and use fully typed API:
 
 ```ts
 import { GraphQLClient } from 'graphql-request'
