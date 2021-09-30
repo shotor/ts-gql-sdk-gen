@@ -50,7 +50,7 @@ program
       )
 
       execSync(
-        `${operationsGenerator} --schemaFilePath ${schemaFile} --destDirPath ${destination} --depthLimit 5`
+        `${operationsGenerator} --schemaFilePath ${schemaFile} --destDirPath ${destination} --depthLimit 5 --includeDeprecatedFields`
       )
 
       // clean up js files
